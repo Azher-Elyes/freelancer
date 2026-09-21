@@ -43,18 +43,25 @@ export function Navbar() {
           className={cn(
             'flex w-full max-w-[1400px] items-center justify-between rounded-full border transition-all duration-500',
             scrolled
-              ? 'glass border-border-bright/60 px-4 py-2.5 shadow-2xl shadow-black/40'
-              : 'border-transparent bg-transparent px-4 py-4'
+              ? 'glass border-border-bright/60 px-4 py-1.5 shadow-2xl shadow-black/40'
+              : 'border-transparent bg-transparent px-4 py-2.5'
           )}
         >
           {/* Logo */}
           <button
             onClick={() => handleNav('#home')}
-            className="relative z-10 flex items-center gap-2 px-2"
-            aria-label="Elyes — home"
+            className="relative z-10 flex items-center gap-2.5 px-2"
+            aria-label="Mohamed Elyes Azher — home"
           >
-            <span className="text-lg font-semibold tracking-tight text-text">
-              {SITE.name}
+            <img
+              src={`${import.meta.env.BASE_URL}logo.png`}
+              alt="Mohamed Elyes Azher logo"
+              className="h-16 w-16 rounded-md object-contain"
+              width={64}
+              height={64}
+            />
+            <span className="hidden text-base font-semibold tracking-tight text-text sm:inline">
+              Mohamed Elyes Azher
             </span>
             <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />
           </button>

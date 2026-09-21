@@ -9,7 +9,7 @@ export function AboutSection() {
     <section id="about" className="relative py-28 md:py-40">
       <div className="container-main">
         <div className="grid gap-16 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
-          {/* Portrait placeholder */}
+          {/* Portrait */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -17,34 +17,24 @@ export function AboutSection() {
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="relative"
           >
-            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-border bg-surface/40">
-              {/* Abstract portrait placeholder */}
-              <div className="absolute inset-0 grid-pattern opacity-40" />
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-transparent to-blue/5" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative">
-                  <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
-                    className="absolute -inset-16 rounded-full border border-accent/20"
-                  />
-                  <motion.div
-                    animate={{ rotate: -360 }}
-                    transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
-                    className="absolute -inset-24 rounded-full border border-border-bright"
-                  />
-                  <div className="relative flex h-32 w-32 items-center justify-center rounded-full border border-accent/40 bg-accent/5 backdrop-blur-sm">
-                    <span className="font-mono text-3xl tracking-tight text-accent">E</span>
-                  </div>
-                </div>
-              </div>
+            <div className="group relative aspect-[4/5] overflow-hidden rounded-3xl border border-border bg-surface/40">
+              {/* Ambient glow behind */}
+              <div className="pointer-events-none absolute -inset-8 -z-10 bg-accent/10 blur-[80px]" />
+
+              {/* Portrait image */}
+              <img
+                src={`${import.meta.env.BASE_URL}portrait.jpg`}
+                alt="Mohamed Elyes Azher — Digital Solutions Engineer"
+                className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]"
+                loading="lazy"
+                width={800}
+                height={1000}
+              />
+
+              {/* Subtle overlay for depth */}
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-bg/40 via-transparent to-transparent" />
+
               {/* Corner labels */}
-              <div className="absolute top-4 left-4 font-mono text-[10px] tracking-widest text-text-dim uppercase">
-                Portrait
-              </div>
-              <div className="absolute right-4 bottom-4 font-mono text-[10px] tracking-widest text-text-dim uppercase">
-                01 / 01
-              </div>
             </div>
           </motion.div>
 

@@ -15,3 +15,30 @@
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
+<style>
+.hexagon-frame {
+  position: relative;
+  width: 260px;
+  height: 300px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background: linear-gradient(135deg, #f5f5f7 0%, #a1a1aa 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hexagon-frame > img {
+  width: calc(100% - 12px);
+  height: calc(100% - 12px);
+  object-fit: cover;
+  object-position: center;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+@media (min-width: 768px) {
+  .hexagon-frame {
+    width: 320px;
+    height: 380px;
+  }
+}
+</style>

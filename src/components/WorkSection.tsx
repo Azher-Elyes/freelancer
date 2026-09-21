@@ -57,7 +57,12 @@ function ProjectCard({ project, index }: { project: typeof PROJECTS[number]; ind
     >
       {/* Visual */}
       <div className="relative aspect-[16/10] overflow-hidden bg-gradient-to-br from-surface to-bg">
-        <ProjectVisual id={project.id} />
+        <img 
+          src={`${import.meta.env.BASE_URL}work/${project.id}.png`}
+          alt={project.title}
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+          loading="lazy"
+        />
         {/* Hover overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/40 to-transparent opacity-80" />
         <div className="absolute inset-0 bg-accent/0 transition-colors duration-700 group-hover:bg-accent/5" />
