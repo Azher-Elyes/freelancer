@@ -46,10 +46,15 @@ export function Hero() {
               </span>
             </motion.div>
 
-            <h1 className="mb-8 text-[clamp(2.5rem,7vw,5.5rem)] leading-[0.95] font-medium tracking-[-0.04em]">
+            <h1 className="mb-8 text-[clamp(2.5rem,7vw,5.5rem)] leading-[1.2] font-medium tracking-[-0.04em]">
               <AnimatedText text="Turn Ideas Into" as="span" className="block" delay={0.4} />
-              <span className="block text-gradient">
-                <AnimatedText text="Digital Reality." as="span" delay={0.6} />
+              <span className="block">
+                <AnimatedText 
+                  text="Digital Reality." 
+                  as="span" 
+                  delay={0.6} 
+                  className="text-gradient" 
+                />
               </span>
             </h1>
 
@@ -94,18 +99,6 @@ export function Hero() {
                 Explore My Work
               </MagneticButton>
             </motion.div>
-
-            {/* Bottom meta */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 1.5 }}
-              className="mt-16 flex flex-wrap items-center gap-x-8 gap-y-3 font-mono text-[11px] tracking-widest text-text-dim uppercase"
-            >
-              <span>Available for new projects</span>
-              <span className="hidden h-px w-8 bg-border-bright sm:block" />
-              <span>Remote · Worldwide</span>
-            </motion.div>
           </div>
 
           {/* Right visual */}
@@ -118,22 +111,28 @@ export function Hero() {
             <HeroVisual />
           </motion.div>
         </div>
-
-        {/* Scroll indicator */}
+        {/* Scroll Indicator */}
         <motion.button
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2, duration: 1 }}
-          onClick={() => scrollTo('#needs')}
-          className="absolute -bottom-4 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-text-dim transition-colors hover:text-text md:flex"
+          onClick={() => scrollTo('#build')} // Update this to your next section ID
+          className="absolute -bottom-8 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2.5 text-text-dim transition-colors hover:text-text"
           aria-label="Scroll to next section"
-        >
-          <span className="font-mono text-[10px] tracking-widest uppercase">Scroll</span>
+        >          
+          {/* Mouse Outline */}
           <motion.div
-            animate={{ y: [0, 6, 0] }}
+            animate={{ y: [0, 4, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
           >
-            <ArrowDown className="h-4 w-4" />
+            <div className="relative flex h-8 w-5 justify-center rounded-full border-2 border-current pt-1.5">
+              {/* Animated Scroll Wheel Dot */}
+              <motion.div
+                animate={{ y: [0, 6, 0], opacity: [1, 0.3, 1] }}
+                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+                className="h-1.5 w-1 rounded-full bg-current"
+              />
+            </div>
           </motion.div>
         </motion.button>
       </motion.div>

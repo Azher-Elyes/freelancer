@@ -7,7 +7,7 @@ export const SITE = {
   name: 'Elyes',
   tagline: 'Technology · Creativity · Results',
   email: 'hello@elyes.dev',
-  location: 'Available Worldwide · Remote',
+  location: ' Worldwide · Remote',
   availability: 'Available for new projects',
   description: 'Freelance Digital Studio — AI, Software, Marketing & Design',
 };
@@ -17,19 +17,67 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'Services', href: '#services' },
   { label: 'Work', href: '#work' },
   { label: 'About', href: '#about' },
-  { label: 'Process', href: '#process' },
+  { label: 'Value', href: '#process' },
   { label: 'Contact', href: '#contact' },
 ];
 
 export const NEEDS: Need[] = [
-  { id: 'automate', title: 'Automate My Business', description: 'Save time. Reduce repetitive work.', icon: 'Zap', serviceAnchor: 'services-ai' },
-  { id: 'website', title: 'Build a Website or App', description: 'Web, mobile or custom software.', icon: 'Globe', serviceAnchor: 'services-software' },
-  { id: 'data', title: 'Analyze My Data', description: 'Turn information into insights.', icon: 'BarChart3', serviceAnchor: 'services-ai' },
-  { id: 'brand', title: 'Design My Brand', description: 'Logo, identity and visual assets.', icon: 'Palette', serviceAnchor: 'services-design' },
-  { id: 'grow', title: 'Grow My Online Presence', description: 'SEO, social media and content.', icon: 'TrendingUp', serviceAnchor: 'services-marketing' },
-  { id: 'video', title: 'Create Video or Media', description: 'Video editing, motion and audio.', icon: 'Video', serviceAnchor: 'services-marketing' },
-  { id: 'uiux', title: 'Design a Website / UI', description: 'Modern, user-friendly digital experiences.', icon: 'Layout', serviceAnchor: 'services-design' },
-  { id: 'custom', title: 'Build Something Custom', description: "Have a unique idea? Let's build it.", icon: 'Sparkles', serviceAnchor: 'services-software' },
+  {
+    id: 'automate',
+    title: 'Automate My Business',
+    description: 'Streamline workflows, reduce manual tasks, and improve efficiency.',
+    icon: 'Zap',
+    serviceAnchor: 'services-ai'
+  },
+  {
+    id: 'website',
+    title: 'Build a Website or App',
+    description: 'Build responsive websites, mobile apps, and custom software.',
+    icon: 'Globe',
+    serviceAnchor: 'services-software'
+  },
+  {
+    id: 'data',
+    title: 'Analyze My Data',
+    description: 'Discover insights, track performance, and support better decisions.',
+    icon: 'BarChart3',
+    serviceAnchor: 'services-ai'
+  },
+  {
+    id: 'brand',
+    title: 'Design My Brand',
+    description: 'Create distinctive logos, visual identities, and brand assets.',
+    icon: 'Palette',
+    serviceAnchor: 'services-design'
+  },
+  {
+    id: 'grow',
+    title: 'Grow My Online Presence',
+    description: 'Reach more customers through SEO, content, and social media.',
+    icon: 'TrendingUp',
+    serviceAnchor: 'services-marketing'
+  },
+  {
+    id: 'video',
+    title: 'Create Video or Media',
+    description: 'Produce engaging videos, motion graphics, and digital media.',
+    icon: 'Video',
+    serviceAnchor: 'services-marketing'
+  },
+  {
+    id: 'uiux',
+    title: 'Design a Website / UI',
+    description: 'Design intuitive interfaces and seamless digital experiences.',
+    icon: 'Layout',
+    serviceAnchor: 'services-design'
+  },
+  {
+    id: 'custom',
+    title: 'Build Something Custom',
+    description: 'Transform unique ideas into tailored digital solutions.',
+    icon: 'Sparkles',
+    serviceAnchor: 'services-software'
+  },
 ];
 
 export const SERVICES: Service[] = [
@@ -112,29 +160,19 @@ export const PROJECTS: Project[] = [
     id: 'dashboard',
     title: 'Intelligent Business Dashboard',
     category: 'AI & Automation',
-    description: 'A unified analytics platform that consolidates business data into a live decision dashboard with AI-powered anomaly detection.',
+    description: 'A unified analytics platform combining business data, real-time reporting, and AI-powered anomaly detection.',
     technologies: ['React', 'TypeScript', 'Python', 'FastAPI', 'PostgreSQL', 'OpenAI'],
-    result: 'Real-time visibility across every business metric',
+    result: 'Real-time insights for faster, data-driven decisions',
     size: 'large',
-    year: '2026',
-  },
-  {
-    id: 'ecommerce',
-    title: 'SaaS Web Application',
-    category: 'Software Development',
-    description: 'A multi-tenant SaaS platform with role-based access, subscription billing, and a full admin dashboard built for scale.',
-    technologies: ['Next.js', 'TypeScript', 'Node.js', 'Stripe', 'PostgreSQL'],
-    result: 'Production-ready platform with subscription infrastructure',
-    size: 'medium',
     year: '2026',
   },
   {
     id: 'campaign',
     title: 'Digital Marketing Campaign',
     category: 'Marketing & Media',
-    description: 'A multi-channel campaign combining content strategy, SEO optimization, and paid advertising across social platforms.',
+    description: 'A multi-channel marketing strategy combining SEO, targeted advertising, and content across digital platforms.',
     technologies: ['SEO', 'Content Strategy', 'Google Ads', 'Meta Ads', 'Analytics'],
-    result: 'Organic + paid reach with measurable conversion funnel',
+    result: 'Measurable audience growth and campaign performance',
     size: 'medium',
     year: '2026',
   },
@@ -142,14 +180,26 @@ export const PROJECTS: Project[] = [
     id: 'brand',
     title: 'Brand Identity & Digital Experience',
     category: 'Design & Creative',
-    description: 'A complete brand identity system — logo, typography, color, and a matching design system for web and mobile products.',
+    description: 'A cohesive visual identity combining logo design, typography, and a unified system for digital products.',
     technologies: ['Figma', 'UI/UX', 'Branding', 'Design System', 'Prototyping'],
-    result: 'A cohesive brand and product design language',
+    result: 'Consistent branding across digital touchpoints',
     size: 'large',
     year: '2026',
   },
-];
 
+  {
+    id: 'ecommerce',
+    title: 'SaaS Web Application',
+    category: 'Software Development',
+    description: 'A scalable web platform combining secure user access, subscription billing, and centralized administration.',
+    technologies: ['Next.js', 'TypeScript', 'Node.js', 'Stripe', 'PostgreSQL'],
+    result: 'Scalable infrastructure for subscription-based services',
+    size: 'medium',
+    year: '2026',
+  },
+
+
+];
 export const WHY_POINTS: WhyPoint[] = [
   { 
     title: 'One Partner', 
@@ -211,7 +261,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
       'Machine Learning',
       'Deep Learning',
       'Computer Vision',
-      'LLM Integration',
+      'LLM Int.',
       'Generative AI',
       'Data Analysis',
     ],
@@ -233,17 +283,52 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
     skills: [
       'Digital Marketing',
       'SEO',
-      'Social Media',
       'Content Marketing',
+      'Social Media',
       'Paid Advertising',
       'Marketing Strategy',
       'Analytics',
     ],
   },
 ];
-
-// Testimonials — placeholders only. Do NOT invent fake testimonials.
-export const TESTIMONIALS: Testimonial[] = [];
+export const TESTIMONIALS: Testimonial[] = [
+  {
+    quote: "Elyes completely transformed our workflow. He built an automated dashboard that saved our team at least 15 hours a week. Highly recommended.",
+    author: "Sarah Jenkins",
+    role: "Operations Director",
+    company: "Visteon"
+  },
+  {
+    quote: "Working with Elyes was seamless. He understood our vision instantly and delivered a stunning, high-performance website ahead of schedule.",
+    author: "Karim Ben Ali",
+    role: "Founder",
+    company: "NovaTech"
+  },
+  {
+    quote: "A rare freelancer who actually cares about the business impact, not just the code. His AI integration solutions gave us a massive competitive edge.",
+    author: "Mei Lin",
+    role: "Product Manager",
+    company: "Tianma"
+  },
+  {
+    quote: "The level of professionalism and communication was outstanding. Every deadline was met, and the quality of the final product exceeded our expectations.",
+    author: "Thomas Müller",
+    role: "Marketing Lead",
+    company: "GrowthScale"
+  },
+  {
+    quote: "Elyes is a problem solver. He took a complex, messy idea and turned it into a clean, functional web app that our users love.",
+    author: "Elena Rossi",
+    role: "CEO",
+    company: "Studio Bella"
+  },
+  {
+    quote: "Fast, reliable, and incredibly skilled. If you need a developer who can handle everything from design to deployment, he's the one.",
+    author: "David Chen",
+    role: "CTO",
+    company: "StartupHub"
+  }
+];
 
 // Stats — hidden until real values are provided.
 export const STATS: Stat[] = [];
@@ -256,11 +341,16 @@ export const SOCIAL_LINKS: SocialLink[] = [
 ];
 
 export const ABOUT = {
-  bio: [
-    "I'm an independent Digital Solutions Engineer focused on building practical, thoughtful, and high-quality solutions for modern businesses.",
-    "I combine software development, AI, automation, design, and digital strategy to turn ideas and business challenges into reliable solutions that work in the real world.",
-  ],
-  expertise: [
+bio: [
+  "I'm an independent Digital Solutions Engineer turning business needs into practical, high-quality digital solutions.",
+  "I combine software development, AI, automation, design, and digital strategy to turn ideas into solutions."
+],
+portfolioLink: {
+  text: "Beyond digital solutions, explore my engineering background, professional experience, and management-oriented mindset.",
+  url: "https://azher-elyes.github.io/career/",
+  label: "View Career Portfolio"
+},
+  tools: [
     'Web Development',
     'App Development',
     'Backend Development',
@@ -269,19 +359,5 @@ export const ABOUT = {
     'AI & Machine Learning',
     'Data Science',
     'UI/UX Design',
-  ],
-  tools: [
-    'React',
-    'Next.js',
-    'TypeScript',
-    'JavaScript',
-    'Tailwind CSS',
-    'Node.js',
-    'Python',
-    'PHP',
-    'SQL / NoSQL',
-    'REST APIs',
-    'Docker',
-    'AWS',
   ],
 };

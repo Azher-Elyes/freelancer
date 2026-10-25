@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { PROJECTS } from '@/data/content';
@@ -6,10 +7,20 @@ import { AnimatedText } from './ui/AnimatedText';
 import { cn } from '@/lib/utils';
 
 export function WorkSection() {
+  const [activeIdx, setActiveIdx] = useState(0);
+
+  const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const el = e.currentTarget;
+    const scrollPosition = el.scrollLeft;
+    const cardWidth = el.scrollWidth / PROJECTS.length;
+    const index = Math.round(scrollPosition / cardWidth);
+    setActiveIdx(Math.min(index, PROJECTS.length - 1));
+  };
+
   return (
-    <section id="work" className="relative py-28 md:py-40">
+    <section id="work" className="relative py-2 md:py-8">
       <div className="container-main">
-        <div className="mb-16 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+        <div className="mb-6 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-2xl">
             <SectionLabel number="04" label="Selected Work" className="mb-6" />
             <h2 className="mb-6 text-[clamp(2rem,5vw,3.75rem)] leading-[1.05] font-medium tracking-[-0.03em]">
@@ -27,12 +38,35 @@ export function WorkSection() {
           </div>
         </div>
 
-        {/* Editorial grid */}
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
+        {/* ═══ CAROUSEL (Mobile) / GRID (Desktop) ═══ */}
+        <div 
+          onScroll={handleScroll}
+          className="flex w-full snap-x snap-mandatory gap-4 overflow-x-auto pb-4 scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:grid md:grid-cols-12 md:overflow-visible md:pb-0"
+        >
           {PROJECTS.map((project, i) => (
             <ProjectCard key={project.id} project={project} index={i} />
           ))}
         </div>
+
+        {/* ═══ MOBILE SCROLL INDICATORS ═══ */}
+        <div className="mt-6 flex flex-col items-center gap-3 md:hidden">
+          <div className="flex items-center gap-2">
+            {PROJECTS.map((_, idx) => (
+              <div
+                key={idx}
+                className={`h-1.5 rounded-full transition-all duration-500 ${
+                  activeIdx === idx
+                    ? 'w-8 bg-accent'
+                    : 'w-1.5 bg-border-bright'
+                }`}
+              />
+            ))}
+          </div>
+          <p className="font-mono text-[10px] tracking-widest text-text-dim uppercase animate-pulse">
+            Swipe to explore
+          </p>
+        </div>
+
       </div>
     </section>
   );
@@ -49,14 +83,14 @@ function ProjectCard({ project, index }: { project: typeof PROJECTS[number]; ind
       viewport={{ once: true, margin: '-80px' }}
       transition={{ duration: 0.9, delay: (index % 2) * 0.1, ease: [0.16, 1, 0.3, 1] }}
       className={cn(
-        'group relative overflow-hidden rounded-3xl border border-border bg-surface/30 transition-all duration-500 hover:border-accent/30',
+        'group relative w-[85vw] max-w-[340px] shrink-0 snap-start overflow-hidden rounded-3xl border border-border bg-surface/30 transition-all duration-500 hover:border-accent/30 md:w-auto md:max-w-none md:shrink',
         spans,
-        isLarge ? 'min-h-[420px]' : 'min-h-[340px]'
+        isLarge ? 'md:min-h-[420px]' : 'md:min-h-[340px]'
       )}
       data-cursor="hover"
     >
       {/* Visual */}
-      <div className="relative aspect-[16/10] overflow-hidden bg-gradient-to-br from-surface to-bg">
+      <div className="relative aspect-[16/10] overflow-hidden bg-gradient-to-br from-surface to-bg md:aspect-auto md:absolute md:inset-0">
         <img 
           src={`${import.meta.env.BASE_URL}work/${project.id}.png`}
           alt={project.title}
@@ -69,7 +103,7 @@ function ProjectCard({ project, index }: { project: typeof PROJECTS[number]; ind
       </div>
 
       {/* Content */}
-      <div className="absolute inset-x-0 bottom-0 p-6 md:p-8">
+      <div className="relative p-6 md:absolute md:inset-x-0 md:bottom-0 md:p-8">
         <div className="mb-3 flex items-center gap-3 font-mono text-[10px] tracking-widest uppercase">
           <span className="text-accent">{project.category}</span>
           <span className="h-px w-6 bg-border-bright" />
@@ -87,8 +121,8 @@ function ProjectCard({ project, index }: { project: typeof PROJECTS[number]; ind
           {project.description}
         </p>
 
-        {/* Reveal on hover */}
-        <div className="overflow-hidden">
+        {/* Reveal on hover (Hidden on mobile, visible on hover for desktop) */}
+        <div className="hidden overflow-hidden md:block">
           <motion.div
             initial={false}
             className="flex max-h-0 flex-col gap-3 opacity-0 transition-all duration-500 group-hover:max-h-40 group-hover:opacity-100"
@@ -119,6 +153,7 @@ function ProjectCard({ project, index }: { project: typeof PROJECTS[number]; ind
   );
 }
 
+// Unused currently but kept for when you want to use these abstract visuals instead of image files
 function ProjectVisual({ id }: { id: string }) {
   // Abstract, distinct visual per project — no stock images
   const variants: Record<string, JSX.Element> = {
@@ -195,7 +230,7 @@ function ProjectVisual({ id }: { id: string }) {
           <div className="absolute inset-4 rounded-full border border-accent/30" />
           <div className="absolute inset-8 rounded-full border border-accent/20" />
           <div className="absolute inset-0 m-auto h-16 w-16 rounded-full bg-gradient-to-br from-accent to-blue opacity-40 blur-md" />
-          <div className="absolute inset-0 m-auto flex h-16 w-16 items-center justify-center rounded-full bg-accent/20 border border-accent/40">
+          <div className="absolute inset-0 m-auto flex h-16 w-16 items-center justify-center rounded-full border border-accent/40 bg-accent/20">
             <span className="font-mono text-xs text-accent">E</span>
           </div>
         </motion.div>

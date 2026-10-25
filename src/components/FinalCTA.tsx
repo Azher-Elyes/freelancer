@@ -3,9 +3,9 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { AnimatedText } from './ui/AnimatedText';
 import { MagneticButton } from './ui/MagneticButton';
-import { scrollTo } from '@/hooks/useSmoothScroll';
 
-export function FinalCTA() {
+// ✅ Added onOpenForm prop
+export function FinalCTA({ onOpenForm }: { onOpenForm: () => void }) {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -67,7 +67,7 @@ export function FinalCTA() {
           className="flex flex-col items-center gap-4"
         >
           <MagneticButton
-            onClick={() => scrollTo('#project-form')}
+            onClick={onOpenForm} // ✅ Changed from scrollTo to onOpenForm
             variant="primary"
             className="group !px-8 !py-4 !text-base"
           >

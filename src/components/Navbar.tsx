@@ -40,12 +40,12 @@ export function Navbar() {
         className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4"
       >
         <nav
-          className={cn(
-            'flex w-full max-w-[1400px] items-center justify-between rounded-full border transition-all duration-500',
-            scrolled
-              ? 'glass border-border-bright/60 px-4 py-1.5 shadow-2xl shadow-black/40'
-              : 'border-transparent bg-transparent px-4 py-2.5'
-          )}
+            className={cn(
+              'flex w-full max-w-[1400px] items-center justify-between rounded-full border transition-all duration-500',
+              scrolled
+                ? 'glass border-border-bright/60 px-4 py-1.5 shadow-2xl shadow-black/40'
+                : 'border-transparent bg-transparent px-4 py-2.5'
+            )}
         >
           {/* Logo */}
           <button
@@ -60,7 +60,7 @@ export function Navbar() {
               width={64}
               height={64}
             />
-            <span className="hidden text-base font-semibold tracking-tight text-text sm:inline">
+            <span className="text-sm font-semibold tracking-tight text-white md:text-base">
               Mohamed Elyes Azher
             </span>
             <span className="h-1.5 w-1.5 rounded-full bg-accent animate-pulse" />

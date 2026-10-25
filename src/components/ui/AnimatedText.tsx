@@ -46,7 +46,11 @@ export function AnimatedText({
       >
         {items.map((item, i) => (
           <span key={i} className="inline-block overflow-hidden align-bottom">
-            <motion.span variants={child} className="inline-block will-change-transform">
+            <motion.span 
+              variants={child} 
+              /* ✅ Added text-gradient directly to the text span */
+              className={cn("inline-block will-change-transform", className?.includes('text-gradient') ? 'text-gradient' : '')}
+            >
               {item}
               {splitBy === 'word' && i < items.length - 1 ? '\u00A0' : ''}
             </motion.span>
